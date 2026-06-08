@@ -119,15 +119,16 @@ body {
   padding: var(--sp-8) var(--sp-9);
   margin-bottom: var(--sp-8);
 }
-.c-header__icon {
-  margin-bottom: var(--sp-5);
-  color: var(--accent);
-}
 .c-header__title {
   font-size: 22px;
-  font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-tight);
+}
+.c-header__first {
+  font-weight: var(--weight-light);
+}
+.c-header__last {
+  font-weight: var(--weight-bold);
 }
 .c-header__sub {
   font-size: var(--text-body);
