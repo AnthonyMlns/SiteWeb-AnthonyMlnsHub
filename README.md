@@ -22,7 +22,6 @@ automatisation et product operations. Portfolio, projets et liens.
 ## Installation
 
 ```bash
-cd hub
 npm install
 ```
 
@@ -37,7 +36,6 @@ npm run lint    # ESLint
 ## Structure
 
 ```
-hub/
 ├── app/           # Pages et layout (App Router)
 │   ├── globals.css
 │   ├── layout.tsx
@@ -52,10 +50,10 @@ hub/
 - [x] Design system initial (tokens, composants)
 - [x] Switch FR/EN
 - [x] Sections : header, liens, projets, compétences
-- [ ] Déploiement Vercel + domaine personnalisé
-- [ ] Page projet FaceA/FaceB
-- [ ] Mode sombre
-- [ ] SEO & analytics
+- [ ] Déploiement Vercel + domaine personnalisé ([#1](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/1))
+- [ ] Page projet FaceA/FaceB ([#2](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/2))
+- [ ] Mode sombre ([#3](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/3))
+- [ ] SEO & analytics ([#4](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/4))
 
 ## Licence
 
