@@ -1,18 +1,34 @@
+import { LanguageProvider } from "@/lib/LanguageContext";
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  weight: ["400", "500"],
+});
 
 export const metadata: Metadata = {
   title: "Anthony Milans",
-  description: "Creator of some cool things — Montpellier, FR",
+  description:
+    "Chef de Projet Digital spécialisé en transformation IA, product operations et automatisation.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={geist.variable}>
-      <body>{children}</body>
+    <html lang="fr" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <body style={{ fontFamily: "var(--font-inter), Inter, sans-serif" }}>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }
