@@ -48,6 +48,11 @@ export default function Home() {
 
       {/* Header */}
       <div className="c-header">
+        <svg className="c-header__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+          <path d="M2 17l10 5 10-5" />
+          <path d="M2 12l10 5 10-5" />
+        </svg>
         <h1 className="c-header__title">{t.header.title}</h1>
         <div className="c-header__sub">{t.header.subtitle}</div>
         <div className="c-header__contact">
@@ -93,7 +98,7 @@ export default function Home() {
       </div>
 
       {/* Projects */}
-      <div className="c-card">
+      <div className="c-card c-card--accent">
         <div className="c-section-label">{t.projects.label}</div>
         {t.projects.items.map((project) => (
           <a
@@ -101,7 +106,7 @@ export default function Home() {
             href={linkHrefs[project.title] || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="c-link-item"
+            className="c-link-item c-link-item--accent"
           >
             <div>
               <div className="c-link-item__title">{project.title}</div>

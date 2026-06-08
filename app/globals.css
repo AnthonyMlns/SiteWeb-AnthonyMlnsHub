@@ -14,6 +14,8 @@
   --bg-light:       #efeeeb;
   --on-dark:        #ffffff;
   --on-dark-muted:  #cccccc;
+  --accent:         #e11d48;
+  --accent-soft:    rgba(225, 29, 72, 0.06);
 
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -117,6 +119,10 @@ body {
   padding: var(--sp-8) var(--sp-9);
   margin-bottom: var(--sp-8);
 }
+.c-header__icon {
+  margin-bottom: var(--sp-5);
+  color: var(--accent);
+}
 .c-header__title {
   font-size: 22px;
   font-weight: var(--weight-bold);
@@ -144,6 +150,9 @@ body {
   border-radius: var(--radius-lg);
   padding: var(--sp-8) var(--sp-9);
   margin-bottom: var(--sp-8);
+}
+.c-card--accent {
+  border-left: 3px solid var(--accent);
 }
 
 /* Section label */
@@ -247,6 +256,12 @@ body {
 }
 .c-link-item:hover .c-link-item__arrow {
   transform: translateX(3px);
+}
+.c-link-item--accent .c-link-item__title {
+  color: var(--accent);
+}
+.c-link-item--accent .c-link-item__arrow {
+  color: var(--accent);
 }
 
 /* Newsletter */
