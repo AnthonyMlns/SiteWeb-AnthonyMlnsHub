@@ -24,7 +24,7 @@ const InstagramIcon = () => (
 
 const linkHrefs: Record<string, string> = {
   "AH Milans Gallery": "https://ahmilans.gallery",
-  "Kairos Digital": "https://www.kairos-digital.com",
+  "Kairos Digital": "https://kairos-digital.com",
   "LinkedIn": "https://linkedin.com/in/anthonymlns",
   "CV - Télécharger": "/CV_Anthony_Milans_2026.pdf",
   "CV - Download": "/CV_Anthony_Milans_2026.pdf",
