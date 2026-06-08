@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SiteWeb Anthony Milans
 
-## Getting Started
+[![Status](https://img.shields.io/badge/status-en%20d%C3%A9veloppement-yellow)]()
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.6-black)](https://nextjs.org)
 
-First, run the development server:
+Site personnel d'Anthony Milans — Chef de Projet Digital spécialisé en IA,
+automatisation et product operations. Portfolio, projets et liens.
+
+## Stack
+
+- **Framework** — Next.js 16.2.6 (App Router)
+- **Langage** — TypeScript
+- **CSS** — Design system custom + Tailwind v4
+- **Fonts** — Inter, JetBrains Mono (via `next/font`)
+- **Hébergement** — [Vercel](https://vercel.com)
+
+## Prérequis
+
+- Node.js >= 18
+- npm
+
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd hub
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Utilisation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run dev     # Développement — http://localhost:3000
+npm run build   # Production build
+npm run lint    # ESLint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
 
-## Learn More
+```
+hub/
+├── app/           # Pages et layout (App Router)
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/    # Composants React
+├── lib/           # Logique métier, traductions, contextes
+└── public/        # Assets statiques (CV, images)
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Roadmap
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [x] Design system initial (tokens, composants)
+- [x] Switch FR/EN
+- [x] Sections : header, liens, projets, compétences
+- [ ] Déploiement Vercel + domaine personnalisé
+- [ ] Page projet FaceA/FaceB
+- [ ] Mode sombre
+- [ ] SEO & analytics
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Licence
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
