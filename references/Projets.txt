@@ -1,0 +1,41 @@
+🎨 KairosIA — kairos-digital.com
+Projet : Cabinet conseil transformation IA pour TPE/PME (déjà en ligne)
+Écrire 1 article blog (méthode, coûts, ROI) — Sanity déjà dispo
+Ajouter page témoignages / cas clients
+Lancer une campagne mailing pour générer des leads
+
+📝 SEOWriter
+Projet : Pipeline multi-agent de rédaction SEO (Python, publiable)
+Ajouter une API FastAPI (1 endpoint POST /generate)
+Créer une page de démonstration minimale
+Déployer et packager (ou le rendre accessible via une interface web)
+
+🖼️ AH Milans Gallery — ahmilans.gallery
+Projet : Galerie d'art en ligne (Next.js + Sanity, déjà live)
+Créer la page Services + AH Milans Curates (mobile-first)
+Mettre en place GitHub Action rebuild Vercel (première brique d'automatisation)
+Poster la toile + poème sur Instagram
+
+🎭 Sébastien Cheramy (client)
+Projet : Portfolio artiste (React + Vite, live) + micro-site Florence
+Faire le point sur les retours en attente
+Planifier les prochaines livraisons
+Assurer la maintenance (domaine, hébergement, contenu)
+
+📐 Minima
+Projet : Réseau social minimaliste sans notifications (concept)
+Définir le scope MVP strict (pas de comptes ? fil chrono uniquement ?)
+Schématiser la base de données (1 table ?)
+Décider stack technique et premier prototype
+
+📖 AgentIA-Ecriture (wrAIter)
+Projet : Pipeline IA multi-genre d'écriture littéraire
+Rendre 1 genre démo public (gated + whitelist simple)
+Produire des démos vidéo ou extraits pour montrer le concept
+Définir le modèle de monétisation (abonnement ? accès unique ?)
+
+🔧 AgentIA-WebsiteBuilder
+Projet : Pipeline agent pour construire des sites web
+Regénérer un site de démonstration (ex : POC clean)
+Documenter le pipeline avec un cas concret
+Définir la version publiable (templates ? SaaS ?)

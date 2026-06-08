@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System · Anthony Milans</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    /* ============================================================
+       TOKENS
+    ============================================================ */
+    :root {
+      /* — Colors */
+      --ink:            #1a1a1a;
+      --ink-soft:       #333;
+      --muted:          #555;
+      --faint:          #888;
+      --whisper:        #aaa;
+      --border:         #e5e5e5;
+      --border-soft:    #f0f0f0;
+      --border-tag:     #d0d0d0;
+      --bg:             #ffffff;
+      --bg-subtle:      #fafafa;
+      --bg-light:       #f5f5f5;
+      --on-dark:        #ffffff;
+      --on-dark-muted:  #cccccc;
+
+      /* — Typography */
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --text-micro:   9px;
+      --text-nano:    9.5px;
+      --text-xs:      10px;
+      --text-sm:      10.5px;
+      --text-base:    12px;
+      --text-md:      12.5px;
+      --text-body:    13px;
+      --text-display: 28px;
+
+      --weight-light:   300;
+      --weight-regular: 400;
+      --weight-medium:  500;
+      --weight-semi:    600;
+      --weight-bold:    700;
+
+      --leading-tight:  1.1;
+      --leading-snug:   1.4;
+      --leading-normal: 1.6;
+      --leading-loose:  1.7;
+
+      --tracking-wide:  0.12em;
+      --tracking-wider: 0.15em;
+      --tracking-label: 0.18em;
+      --tracking-tight: -0.02em;
+
+      /* — Spacing */
+      --sp-1:   2px;
+      --sp-2:   4px;
+      --sp-3:   6px;
+      --sp-4:   8px;
+      --sp-5:   10px;
+      --sp-6:   12px;
+      --sp-7:   14px;
+      --sp-8:   16px;
+      --sp-9:   18px;
+      --sp-10:  20px;
+      --sp-11:  22px;
+      --sp-12:  24px;
+      --sp-14:  28px;
+      --sp-16:  32px;
+      --sp-18:  36px;
+      --sp-20:  40px;
+      --sp-24:  48px;
+      --sp-28:  56px;
+
+      /* — Radius */
+      --radius-sm:   3px;
+      --radius-md:   4px;
+      --radius-lg:   6px;
+      --radius-full: 50%;
+
+      /* — Border width */
+      --border-thin:   1px;
+      --border-medium: 2px;
+      --border-accent: 3px;
+
+      /* — Layout */
+      --container:    820px;
+      --col-label:    200px;
+      --col-gap:      24px;
+      --page-pad-x:   56px;
+      --page-pad-y:   48px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      font-weight: var(--weight-regular);
+      line-height: var(--leading-loose);
+      color: var(--ink);
+      background: var(--bg);
+      padding: var(--page-pad-y) var(--page-pad-x);
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY PRIMITIVES
+    ============================================================ */
+    .t-display {
+      font-size: var(--text-display);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-tight);
+      line-height: var(--leading-tight);
+    }
+    .t-display span { font-weight: var(--weight-light); }
+
+    .t-label {
+      font-size: var(--text-nano);
+      font-weight: var(--weight-regular);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .t-meta {
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .t-sub {
+      font-size: var(--text-base);
+      color: var(--muted);
+    }
+
+    .t-body { font-size: var(--text-body); line-height: var(--leading-loose); }
+    .t-sm   { font-size: var(--text-md);   line-height: var(--leading-normal); }
+    .t-xs   { font-size: var(--text-sm);   color: var(--muted); }
+    .t-micro{ font-size: var(--text-xs);   color: var(--whisper); }
+
+    .t-semi  { font-weight: var(--weight-semi); }
+    .t-bold  { font-weight: var(--weight-bold); }
+    .t-light { font-weight: var(--weight-light); }
+
+    code, .t-mono {
+      font-family: var(--font-mono);
+      font-size: var(--text-base);
+      background: var(--bg-light);
+      padding: 1px 5px;
+      border-radius: var(--radius-sm);
+      color: var(--ink-soft);
+    }
+
+    /* ============================================================
+       LAYOUT PRIMITIVES
+    ============================================================ */
+    .container { max-width: var(--container); margin: 0 auto; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: var(--col-label) 1fr;
+      gap: 0 var(--col-gap);
+    }
+
+    .stack-4  { display: flex; flex-direction: column; gap: var(--sp-2); }
+    .stack-8  { display: flex; flex-direction: column; gap: var(--sp-4); }
+    .stack-16 { display: flex; flex-direction: column; gap: var(--sp-8); }
+
+    .row { display: flex; align-items: center; gap: var(--sp-4); }
+
+    /* ============================================================
+       COMPONENTS
+    ============================================================ */
+
+    /* — Header */
+    .c-header {
+      border-bottom: var(--border-medium) solid var(--ink);
+      padding-bottom: var(--sp-10);
+      margin-bottom: var(--sp-16);
+    }
+    .c-header__meta {
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: var(--sp-4);
+    }
+    .c-header__title {
+      font-size: var(--text-display);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-tight);
+      line-height: var(--leading-tight);
+    }
+    .c-header__title span { font-weight: var(--weight-light); }
+    .c-header__sub {
+      font-size: var(--text-base);
+      color: var(--muted);
+      margin-top: var(--sp-3);
+    }
+
+    /* — Section label */
+    .c-section-label {
+      font-size: var(--text-nano);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: var(--sp-7);
+      padding-bottom: var(--sp-3);
+      border-bottom: var(--border-thin) solid var(--border);
+    }
+
+    /* — Highlight */
+    .c-highlight {
+      background: var(--bg-light);
+      border-left: var(--border-accent) solid var(--ink);
+      padding: var(--sp-7) var(--sp-9);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .c-highlight p { font-size: var(--text-body); line-height: var(--leading-normal); }
+    .c-highlight strong { font-weight: var(--weight-semi); }
+
+    /* — CV Project row */
+    .c-project {
+      display: grid;
+      grid-template-columns: var(--col-label) 1fr;
+      gap: 0 var(--col-gap);
+      padding-bottom: var(--sp-8);
+      margin-bottom: var(--sp-8);
+      border-bottom: var(--border-thin) solid var(--border-soft);
+    }
+    .c-project:last-of-type { border-bottom: none; }
+    .c-project__name  { font-weight: var(--weight-semi); font-size: var(--text-md); }
+    .c-project__url   { font-size: var(--text-sm); color: var(--faint); display: block; margin-top: var(--sp-1); }
+    .c-project__stack { font-size: var(--text-sm); color: var(--muted); margin-top: var(--sp-1); }
+    .c-project__desc  { font-size: var(--text-md); line-height: var(--leading-normal); }
+    .c-project__arrow { color: var(--faint); margin-right: var(--sp-2); }
+
+    /* — Numbered item */
+    .c-numbered {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-11);
+    }
+    .c-numbered__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      background: var(--ink);
+      color: var(--on-dark);
+      font-size: var(--text-micro);
+      font-weight: var(--weight-bold);
+      border-radius: var(--radius-full);
+      margin-top: 2px;
+    }
+    .c-numbered__title {
+      font-weight: var(--weight-semi);
+      font-size: var(--text-body);
+      margin-bottom: var(--sp-3);
+    }
+    .c-numbered__body {
+      font-size: var(--text-body);
+      color: var(--ink-soft);
+      padding-left: var(--sp-14);
+    }
+    .c-numbered__body ul { padding-left: var(--sp-4); }
+    .c-numbered__body li { margin-bottom: var(--sp-2); }
+
+    /* — Post card */
+    .c-post {
+      background: var(--bg-subtle);
+      border: var(--border-thin) solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-8) var(--sp-9);
+    }
+    .c-post__label {
+      font-size: var(--text-nano);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--whisper);
+      margin-bottom: var(--sp-3);
+    }
+    .c-post__body {
+      font-size: var(--text-base);
+      line-height: var(--leading-loose);
+      color: var(--ink-soft);
+      white-space: pre-wrap;
+    }
+
+    /* — Action block (dark) */
+    .c-action {
+      background: var(--ink);
+      color: var(--on-dark);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-10) var(--sp-11);
+    }
+    .c-action__title {
+      font-size: var(--text-body);
+      font-weight: var(--weight-semi);
+      letter-spacing: 0.01em;
+      margin-bottom: var(--sp-6);
+    }
+    .c-action ul { padding-left: var(--sp-9); }
+    .c-action li {
+      font-size: var(--text-md);
+      color: var(--on-dark-muted);
+      margin-bottom: var(--sp-3);
+    }
+    .c-action li strong { color: var(--on-dark); }
+
+    /* — Tag */
+    .c-tag {
+      display: inline-block;
+      font-size: var(--text-xs);
+      border: var(--border-thin) solid var(--border-tag);
+      border-radius: var(--radius-sm);
+      padding: 2px var(--sp-3);
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* — Tag group */
+    .c-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+    }
+
+    /* — Footer */
+    .c-footer {
+      border-top: var(--border-thin) solid var(--border);
+      padding-top: var(--sp-7);
+      font-size: var(--text-xs);
+      color: var(--whisper);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* — Divider */
+    .c-divider {
+      border: none;
+      border-top: var(--border-thin) solid var(--border);
+      margin: var(--sp-18) 0;
+    }
+
+    /* ============================================================
+       DESIGN SYSTEM — PAGE STYLES
+    ============================================================ */
+    .ds-section { margin-bottom: var(--sp-18); }
+
+    .ds-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: var(--sp-4) var(--sp-16);
+      align-items: start;
+      padding: var(--sp-5) 0;
+      border-bottom: var(--border-thin) solid var(--border-soft);
+    }
+    .ds-row:last-child { border-bottom: none; }
+
+    .ds-token-name {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--muted);
+      padding-top: 2px;
+    }
+    .ds-token-value {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--faint);
+    }
+
+    /* Color swatches */
+    .ds-swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: var(--sp-4);
+    }
+    .ds-swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: var(--border-thin) solid var(--border-soft);
+    }
+    .ds-swatch__color {
+      height: 44px;
+    }
+    .ds-swatch__info {
+      padding: var(--sp-3) var(--sp-4);
+      background: var(--bg);
+    }
+    .ds-swatch__name {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--ink-soft);
+      display: block;
+    }
+    .ds-swatch__hex {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--faint);
+      display: block;
+      margin-top: 1px;
+    }
+
+    /* Spacing scale */
+    .ds-spacing {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+    .ds-spacing-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+    }
+    .ds-spacing-bar {
+      background: var(--ink);
+      height: 8px;
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
+    .ds-spacing-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+
+    /* Component preview */
+    .ds-component {
+      margin-bottom: var(--sp-18);
+    }
+    .ds-component__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: var(--sp-8);
+      padding-bottom: var(--sp-3);
+      border-bottom: var(--border-thin) solid var(--border-soft);
+    }
+    .ds-component__name {
+      font-size: var(--text-body);
+      font-weight: var(--weight-semi);
+    }
+    .ds-component__class {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--faint);
+    }
+    .ds-component__preview {
+      padding: var(--sp-9);
+      background: var(--bg-subtle);
+      border: var(--border-thin) solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--sp-5);
+    }
+    .ds-component__preview--dark {
+      background: #111;
+    }
+    .ds-component__notes {
+      font-size: var(--text-sm);
+      color: var(--faint);
+      line-height: var(--leading-normal);
+    }
+
+    @media print {
+      body { padding: 28px 36px; }
+      .c-action { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .c-highlight { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ds-swatch__color { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ds-spacing-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .c-numbered__badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <div class="c-header">
+    <div class="c-header__meta">Anthony Milans · Design System · v1.0 · Juin 2026</div>
+    <h1 class="c-header__title">AM <span>Design System</span></h1>
+    <div class="c-header__sub">Tokens, composants et patterns — basé sur le document CV & LinkedIn</div>
+  </div>
+
+
+  <!-- ============================================================
+       1. COULEURS
+  ============================================================ -->
+  <section class="ds-section">
+    <div class="c-section-label">01 — Couleurs</div>
+
+    <div class="ds-swatches">
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#1a1a1a;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--ink</span>
+          <span class="ds-swatch__hex">#1a1a1a</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#333333;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--ink-soft</span>
+          <span class="ds-swatch__hex">#333333</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#555555;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--muted</span>
+          <span class="ds-swatch__hex">#555555</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#888888;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--faint</span>
+          <span class="ds-swatch__hex">#888888</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#aaaaaa;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--whisper</span>
+          <span class="ds-swatch__hex">#aaaaaa</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#e5e5e5;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--border</span>
+          <span class="ds-swatch__hex">#e5e5e5</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#f0f0f0;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--border-soft</span>
+          <span class="ds-swatch__hex">#f0f0f0</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#d0d0d0;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--border-tag</span>
+          <span class="ds-swatch__hex">#d0d0d0</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#ffffff; border-bottom: 1px solid #e5e5e5;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--bg</span>
+          <span class="ds-swatch__hex">#ffffff</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#fafafa;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--bg-subtle</span>
+          <span class="ds-swatch__hex">#fafafa</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#f5f5f5;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--bg-light</span>
+          <span class="ds-swatch__hex">#f5f5f5</span>
+        </div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch__color" style="background:#cccccc;"></div>
+        <div class="ds-swatch__info">
+          <span class="ds-swatch__name">--on-dark-muted</span>
+          <span class="ds-swatch__hex">#cccccc</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="c-divider" />
+
+  <!-- ============================================================
+       2. TYPOGRAPHIE
+  ============================================================ -->
+  <section class="ds-section">
+    <div class="c-section-label">02 — Typographie</div>
+
+    <!-- Scale -->
+    <div style="margin-bottom: var(--sp-10);">
+      <div class="ds-row">
+        <div>
+          <div class="ds-token-name">--text-display</div>
+          <div class="ds-token-value">28px</div>
+        </div>
+        <div style="font-size:28px; font-weight:700; letter-spacing:-0.02em; line-height:1.1;">
+          Anthony <span style="font-weight:300;">Milans</span>
+        </div>
+      </div>
+      <div class="ds-row">
+        <div>
+          <div class="ds-token-name">--text-body</div>
+          <div class="ds-token-value">13px · lh 1.7</div>
+        </div>
+        <div style="font-size:13px; line-height:1.7;">
+          Chef de Projet Digital spécialisé en transformation IA, product operations et automatisation.
+        </div>
+      </div>
+      <div class="ds-row">
+        <div>
+          <div class="ds-token-name">--text-md</div>
+          <div class="ds-token-value">12.5px · lh 1.6</div>
+        </div>
+        <div style="font-size:12.5px; line-height:1.6;">
+          <strong style="font-weight:600;">SEOWriter</strong> — Génération d'articles SEO via pipeline IA automatisé.
+        </div>
+      </div>
+      <div class="ds-row">
+        <div>
+          <div class="ds-token-name">--text-base</div>
+          <div class="ds-token-value">12px</div>
+        </div>
+        <div style="font-size:12px; color:#555;">
+          Stratégie de valorisation · Recommandations concrètes
+        </div>
+      </div>
+      <div class="ds-row">
+        <div>
+          <div class="ds-token-name">--text-sm</div>
+          <div class="ds-token-value">10.5px · color muted</div>
+        </div>
+        <div style="font-size:10.5px; color:#555;">
+          FastAPI · Claude API · n8n · Vercel
+        </div>
+      </div>
+      <div class="ds-row">
+        <div>
+          <div class="ds-token-name">--text-xs (label)</div>
+          <div class="ds-token-value">10px · upper · ls 0.15em</div>
+        </div>
+        <div style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#888;">
+          Anthony Milans · Juin 2026
+        </div>
+      </div>
+      <div class="ds-row">
+        <div>
+          <div class="ds-token-name">--text-nano (section)</div>
+          <div class="ds-token-value">9.5px · upper · ls 0.18em</div>
+        </div>
+        <div style="font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase; color:#888;">
+          Projets IA & Automatisation
+        </div>
+      </div>
+      <div class="ds-row">
+        <div>
+          <div class="ds-token-name">--font-mono</div>
+          <div class="ds-token-value">JetBrains Mono</div>
+        </div>
+        <div style="font-family:'JetBrains Mono', monospace; font-size:12px; background:#f5f5f5; padding:2px 6px; border-radius:3px; display:inline-block;">
+          --ink: #1a1a1a
+        </div>
+      </div>
+    </div>
+
+    <!-- Weights -->
+    <div style="margin-top: var(--sp-8);">
+      <div style="font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase; color:#aaa; margin-bottom:var(--sp-5);">Graisses</div>
+      <div class="ds-row">
+        <div><div class="ds-token-name">--weight-light</div><div class="ds-token-value">300</div></div>
+        <div style="font-size:20px; font-weight:300; letter-spacing:-0.01em;">Milans — light</div>
+      </div>
+      <div class="ds-row">
+        <div><div class="ds-token-name">--weight-regular</div><div class="ds-token-value">400</div></div>
+        <div style="font-size:20px; font-weight:400; letter-spacing:-0.01em;">Milans — regular</div>
+      </div>
+      <div class="ds-row">
+        <div><div class="ds-token-name">--weight-semi</div><div class="ds-token-value">600</div></div>
+        <div style="font-size:20px; font-weight:600; letter-spacing:-0.01em;">Milans — semibold</div>
+      </div>
+      <div class="ds-row">
+        <div><div class="ds-token-name">--weight-bold</div><div class="ds-token-value">700</div></div>
+        <div style="font-size:20px; font-weight:700; letter-spacing:-0.02em;">Milans — bold</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="c-divider" />
+
+  <!-- ============================================================
+       3. ESPACEMENT
+  ============================================================ -->
+  <section class="ds-section">
+    <div class="c-section-label">03 — Espacement</div>
+    <div class="ds-spacing">
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:2px;"></div><span class="ds-spacing-label">--sp-1 · 2px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:4px;"></div><span class="ds-spacing-label">--sp-2 · 4px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:6px;"></div><span class="ds-spacing-label">--sp-3 · 6px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:8px;"></div><span class="ds-spacing-label">--sp-4 · 8px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:10px;"></div><span class="ds-spacing-label">--sp-5 · 10px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:12px;"></div><span class="ds-spacing-label">--sp-6 · 12px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:14px;"></div><span class="ds-spacing-label">--sp-7 · 14px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:16px;"></div><span class="ds-spacing-label">--sp-8 · 16px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:18px;"></div><span class="ds-spacing-label">--sp-9 · 18px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:20px;"></div><span class="ds-spacing-label">--sp-10 · 20px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:24px;"></div><span class="ds-spacing-label">--sp-12 · 24px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:32px;"></div><span class="ds-spacing-label">--sp-16 · 32px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:36px;"></div><span class="ds-spacing-label">--sp-18 · 36px</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:48px;"></div><span class="ds-spacing-label">--sp-24 · 48px (page-pad-y)</span></div>
+      <div class="ds-spacing-row"><div class="ds-spacing-bar" style="width:56px;"></div><span class="ds-spacing-label">--sp-28 · 56px (page-pad-x)</span></div>
+    </div>
+  </section>
+
+  <hr class="c-divider" />
+
+  <!-- ============================================================
+       4. COMPOSANTS
+  ============================================================ -->
+  <section class="ds-section">
+    <div class="c-section-label">04 — Composants</div>
+
+    <!-- Header -->
+    <div class="ds-component">
+      <div class="ds-component__header">
+        <span class="ds-component__name">Header</span>
+        <span class="ds-component__class">.c-header · .c-header__meta · .c-header__title · .c-header__sub</span>
+      </div>
+      <div class="ds-component__preview">
+        <div class="c-header" style="margin-bottom:0;">
+          <div class="c-header__meta">Anthony Milans · Juin 2026</div>
+          <h1 class="c-header__title">Titre du document <span>— variante light</span></h1>
+          <div class="c-header__sub">Sous-titre descriptif · Information secondaire</div>
+        </div>
+      </div>
+      <div class="ds-component__notes">Bordure bottom 2px --ink. Titre : bold + light pour contraste. Usage : une seule fois par document, en haut.</div>
+    </div>
+
+    <!-- Section label -->
+    <div class="ds-component">
+      <div class="ds-component__header">
+        <span class="ds-component__name">Section Label</span>
+        <span class="ds-component__class">.c-section-label</span>
+      </div>
+      <div class="ds-component__preview">
+        <div class="c-section-label">Expérience professionnelle</div>
+        <div class="c-section-label">Projets IA & Automatisation</div>
+        <div class="c-section-label" style="margin-bottom:0;">Formation</div>
+      </div>
+      <div class="ds-component__notes">9.5px · uppercase · letter-spacing 0.18em · couleur --faint · bordure bottom --border. Rythme visuel entre sections.</div>
+    </div>
+
+    <!-- Highlight -->
+    <div class="ds-component">
+      <div class="ds-component__header">
+        <span class="ds-component__name">Highlight</span>
+        <span class="ds-component__class">.c-highlight</span>
+      </div>
+      <div class="ds-component__preview">
+        <div class="c-highlight">
+          <p>Le marché est saturé de CDP qui <em>déclarent</em> utiliser l'IA. Toi, tu <strong>livres des choses en prod</strong>. C'est une différence de nature, pas de degré.</p>
+        </div>
+      </div>
+      <div class="ds-component__notes">Bordure gauche 3px --ink · background --bg-light · radius 0 4px 4px 0. Usage : mise en avant d'un point clé, citation, warning.</div>
+    </div>
+
+    <!-- CV Project row -->
+    <div class="ds-component">
+      <div class="ds-component__header">
+        <span class="ds-component__name">Project Row</span>
+        <span class="ds-component__class">.c-project · .c-project__name · .c-project__url · .c-project__stack · .c-project__desc</span>
+      </div>
+      <div class="ds-component__preview">
+        <div class="c-project">
+          <div>
+            <div class="c-project__name">SEOWriter</div>
+            <span class="c-project__url">seowriter.vercel.app</span>
+            <div class="c-project__stack">FastAPI · Claude API · n8n · Vercel</div>
+          </div>
+          <div class="c-project__desc">
+            <span class="c-project__arrow">→</span>Génération d'articles SEO optimisés via pipeline IA automatisé. Interface démo publique.
+          </div>
+        </div>
+        <div class="c-project" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
+          <div>
+            <div class="c-project__name">AH Milans Gallery</div>
+            <span class="c-project__url">ahmilans.com</span>
+            <div class="c-project__stack">Next.js · Tailwind · Sanity · Vercel</div>
+          </div>
+          <div class="c-project__desc">
+            <span class="c-project__arrow">→</span>Galerie d'art en ligne. 300+ visiteurs/mois, newsletters 60–70% taux d'ouverture.
+          </div>
+        </div>
+      </div>
+      <div class="ds-component__notes">Grid 200px + 1fr. Séparateur --border-soft entre lignes. Dernier item sans bordure.</div>
+    </div>
+
+    <!-- Numbered item -->
+    <div class="ds-component">
+      <div class="ds-component__header">
+        <span class="ds-component__name">Numbered Item</span>
+        <span class="ds-component__class">.c-numbered · .c-numbered__badge · .c-numbered__title · .c-numbered__body</span>
+      </div>
+      <div class="ds-component__preview">
+        <div class="c-numbered">
+          <span class="c-numbered__badge">1</span>
+          <div>
+            <div class="c-numbered__title">Section "Projets" — sous-estimée, bien indexée</div>
+            <div class="c-numbered__body">
+              <ul>
+                <li>Section dédiée LinkedIn, rattachable à une expérience ou indépendante</li>
+                <li>Une entrée par projet : nom, description courte, lien, technologies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="c-numbered" style="margin-bottom:0;">
+          <span class="c-numbered__badge">2</span>
+          <div>
+            <div class="c-numbered__title">Section "En vedette" — la plus visible du profil</div>
+            <div class="c-numbered__body">
+              <ul>
+                <li>Apparaît en haut du profil, avant même les expériences</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-component__notes">Badge 20×20px · background --ink · radius 50%. Alignement flex avec gap. Usage : liste numérotée structurée, étapes, priorités.</div>
+    </div>
+
+    <!-- Tags -->
+    <div class="ds-component">
+      <div class="ds-component__header">
+        <span class="ds-component__name">Tag / Tag Group</span>
+        <span class="ds-component__class">.c-tag · .c-tags</span>
+      </div>
+      <div class="ds-component__preview">
+        <div class="c-tags">
+          <span class="c-tag">Claude Code</span>
+          <span class="c-tag">Claude API</span>
+          <span class="c-tag">n8n</span>
+          <span class="c-tag">GitHub CI/CD</span>
+          <span class="c-tag">Sanity CMS</span>
+          <span class="c-tag">Next.js</span>
+          <span class="c-tag">Vercel</span>
+          <span class="c-tag">FastAPI</span>
+        </div>
+      </div>
+      <div class="ds-component__notes">Bordure 1px --border-tag · radius --radius-sm (3px) · 10px · couleur --muted. Usage : stack technique, compétences, catégories.</div>
+    </div>
+
+    <!-- Post card -->
+    <div class="ds-component">
+      <div class="ds-component__header">
+        <span class="ds-component__name">Post Card</span>
+        <span class="ds-component__class">.c-post · .c-post__label · .c-post__body</span>
+      </div>
+      <div class="ds-component__preview">
+        <div class="c-post">
+          <div class="c-post__label">Exemple de post LinkedIn</div>
+          <div class="c-post__body">J'ai déployé mon site personnel en moins de 48h.
+
+Stack : HTML/CSS · Vercel — Outil : Claude Code
+
+Brief → design → mise en ligne. Sans dépendance externe.
+
+#ChefDeProjet #IA #ClaudeCode</div>
+        </div>
+      </div>
+      <div class="ds-component__notes">Background --bg-subtle · bordure 1px --border · radius --radius-lg. white-space: pre-wrap pour conserver les sauts de ligne.</div>
+    </div>
+
+    <!-- Action block -->
+    <div class="ds-component">
+      <div class="ds-component__header">
+        <span class="ds-component__name">Action Block (dark)</span>
+        <span class="ds-component__class">.c-action · .c-action__title</span>
+      </div>
+      <div class="ds-component__preview ds-component__preview--dark">
+        <div class="c-action">
+          <div class="c-action__title">Lundi–Mardi : anthonymlns.com en prod</div>
+          <ul>
+            <li><strong>Lundi :</strong> construire + déployer sur Vercel</li>
+            <li><strong>Mardi :</strong> rédiger le post LinkedIn, ajouter capture</li>
+            <li><strong>Objectif :</strong> 1 post / projet livré → signal continu</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ds-component__notes">Background --ink · texte --on-dark / --on-dark-muted · radius --radius-lg. Usage : call-to-action, conclusion, bloc priorité. Un seul par document.</div>
+    </div>
+
+    <!-- Footer -->
+    <div class="ds-component">
+      <div class="ds-component__header">
+        <span class="ds-component__name">Footer</span>
+        <span class="ds-component__class">.c-footer</span>
+      </div>
+      <div class="ds-component__preview">
+        <div class="c-footer" style="margin-top:0;">
+          <span>Anthony Milans · milans.antony@gmail.com</span>
+          <span>Juin 2026</span>
+        </div>
+      </div>
+      <div class="ds-component__notes">Flex space-between · bordure top --border · 10px --whisper. Usage : bas de chaque document.</div>
+    </div>
+
+  </section>
+
+  <hr class="c-divider" />
+
+  <!-- ============================================================
+       5. LAYOUT
+  ============================================================ -->
+  <section class="ds-section">
+    <div class="c-section-label">05 — Layout & Grilles</div>
+
+    <div class="ds-row">
+      <div><div class="ds-token-name">--container</div><div class="ds-token-value">820px</div></div>
+      <div style="font-size:12px; color:#555;">Largeur max de la page — centrée avec margin auto.</div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">--col-label</div><div class="ds-token-value">200px</div></div>
+      <div style="font-size:12px; color:#555;">Colonne gauche du layout 2 colonnes (project row, section label + contenu).</div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">--col-gap</div><div class="ds-token-value">24px</div></div>
+      <div style="font-size:12px; color:#555;">Gouttière entre les deux colonnes.</div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">--page-pad-x</div><div class="ds-token-value">56px</div></div>
+      <div style="font-size:12px; color:#555;">Padding horizontal de la page (32px print).</div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">--page-pad-y</div><div class="ds-token-value">48px</div></div>
+      <div style="font-size:12px; color:#555;">Padding vertical de la page (28px print).</div>
+    </div>
+  </section>
+
+  <hr class="c-divider" />
+
+  <!-- ============================================================
+       6. BORDER RADIUS
+  ============================================================ -->
+  <section class="ds-section">
+    <div class="c-section-label">06 — Rayons & Bordures</div>
+
+    <div class="ds-row">
+      <div><div class="ds-token-name">--radius-sm</div><div class="ds-token-value">3px</div></div>
+      <div><span style="display:inline-block; width:32px; height:16px; border:1px solid #d0d0d0; border-radius:3px;"></span><span style="font-size:12px; color:#555; margin-left:8px;">Tags, code inline</span></div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">--radius-md</div><div class="ds-token-value">4px</div></div>
+      <div><span style="display:inline-block; width:32px; height:16px; border:1px solid #d0d0d0; border-radius:4px;"></span><span style="font-size:12px; color:#555; margin-left:8px;">Highlight (côté droit), swatches</span></div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">--radius-lg</div><div class="ds-token-value">6px</div></div>
+      <div><span style="display:inline-block; width:32px; height:16px; border:1px solid #d0d0d0; border-radius:6px;"></span><span style="font-size:12px; color:#555; margin-left:8px;">Cards, post-example, action-block</span></div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">--radius-full</div><div class="ds-token-value">50%</div></div>
+      <div><span style="display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; background:#1a1a1a; color:#fff; font-size:9px; border-radius:50%;">1</span><span style="font-size:12px; color:#555; margin-left:8px;">Badge numéroté</span></div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">--border-thin</div><div class="ds-token-value">1px</div></div>
+      <div style="font-size:12px; color:#555;">Séparateurs, bordures de cards, footer, section-label</div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">--border-medium</div><div class="ds-token-value">2px</div></div>
+      <div style="font-size:12px; color:#555;">Bordure bottom du header</div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">--border-accent</div><div class="ds-token-value">3px</div></div>
+      <div style="font-size:12px; color:#555;">Bordure gauche du highlight</div>
+    </div>
+  </section>
+
+  <hr class="c-divider" />
+
+  <!-- ============================================================
+       7. PRINT
+  ============================================================ -->
+  <section class="ds-section">
+    <div class="c-section-label">07 — Print / PDF</div>
+
+    <div class="ds-row">
+      <div><div class="ds-token-name">padding</div><div class="ds-token-value">28px 36px</div></div>
+      <div style="font-size:12px; color:#555;">Marges réduites à l'impression vs 48px 56px écran</div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">color-adjust</div><div class="ds-token-value">exact</div></div>
+      <div style="font-size:12px; color:#555;">Appliqué sur .c-action, .c-highlight, badges — force les backgrounds à l'impression</div>
+    </div>
+    <div class="ds-row">
+      <div><div class="ds-token-name">Export</div><div class="ds-token-value">Ctrl+P → PDF</div></div>
+      <div style="font-size:12px; color:#555;">Chrome / Edge recommandé · Portrait · Marges minimum</div>
+    </div>
+  </section>
+
+
+  <div class="c-footer">
+    <span>AM Design System v1.0 · milans.antony@gmail.com</span>
+    <span>Juin 2026</span>
+  </div>
+
+</body>
+</html>
