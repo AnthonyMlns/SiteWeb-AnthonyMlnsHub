@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LanguageProvider>
           {children}
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
