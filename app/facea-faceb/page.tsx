@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLanguage } from "@/lib/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
+import { texts } from "@/lib/texts";
 
 export default function FaceAB() {
   const { t } = useLanguage();
@@ -37,7 +38,13 @@ export default function FaceAB() {
 
       <section className="ab-directory">
         <h2 className="ab-directory__label">{t.faceab.directory}</h2>
-        <p className="ab-empty">{t.faceab.empty}</p>
+        {texts.map((text) => (
+          <Link key={text.slug} href={`/facea-faceb/${text.slug}`} className="ab-entry">
+            <span className="ab-entry__title">{text.title}</span>
+            <span className="ab-entry__year">{text.year}</span>
+            <span className="ab-entry__arrow">→</span>
+          </Link>
+        ))}
       </section>
 
       <hr className="ab-rule" />

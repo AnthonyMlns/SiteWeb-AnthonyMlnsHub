@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useLanguage } from "@/lib/LanguageContext";
 import Tags from "@/components/Tags";
 import LanguageToggle from "@/components/LanguageToggle";
+import { texts } from "@/lib/texts";
 
 const GitHubIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -127,8 +128,8 @@ export default function Home() {
       {/* FaceA/FaceB — Textes à l'affiche */}
       <div className="c-card c-card--accent-blue">
         <div className="c-section-label">{t.faceabFeatured.label}</div>
-        {t.faceabFeatured.items.map((item) => (
-          <Link key={item.title} href="/facea-faceb" className="c-link-item">
+        {t.faceabFeatured.items.map((item, i) => (
+          <Link key={item.title} href={`/facea-faceb/${texts[i]?.slug ?? ""}`} className="c-link-item">
             <div>
               <div className="c-link-item__title">{item.title}</div>
               <div className="c-link-item__desc">{item.desc}</div>

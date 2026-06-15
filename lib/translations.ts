@@ -33,6 +33,7 @@ export type Translations = {
     items: ProjectItem[];
   };
   linkGroups: LinkGroup[];
+  footer: string;
   faceab: {
     subtitle: string;
     directory: string;
@@ -93,8 +94,8 @@ const translations: Record<Lang, Translations> = {
     faceabFeatured: {
       label: "Textes à l'affiche",
       items: [
-        { title: "Manifeste", desc: "Fragment inaugurale" },
-        { title: "Journal #1", desc: "Notes de passage" },
+        { title: "Carnets Classiques — Avignon", desc: "Carnets Classiques — Avignon" },
+        { title: "Carnets Classiques — Un Auteur Classique", desc: "Carnets Classiques — Un Auteur Classique" },
       ],
     },
   },
@@ -146,8 +147,8 @@ const translations: Record<Lang, Translations> = {
     faceabFeatured: {
       label: "Featured texts",
       items: [
-        { title: "Manifesto", desc: "Opening fragment" },
-        { title: "Journal #1", desc: "Passing notes" },
+        { title: "Carnets Classiques — Avignon", desc: "Carnets Classiques — Avignon" },
+        { title: "Carnets Classiques — Un Auteur Classique", desc: "Carnets Classiques — Un Auteur Classique" },
       ],
     },
   },
