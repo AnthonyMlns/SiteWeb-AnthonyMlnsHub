@@ -23,6 +23,12 @@ const InstagramIcon = () => (
   </svg>
 );
 
+const MailIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+  </svg>
+);
+
 const linkHrefs: Record<string, string> = {
   "FaceA/FaceB": "/facea-faceb",
   "Portfolio": "/portfolio",
@@ -64,7 +70,6 @@ export default function Home() {
         </div>
         <div className="c-header__contact">
           <span>{t.header.location}</span>
-          <span>{t.header.email}</span>
         </div>
       </div>
 
@@ -72,14 +77,17 @@ export default function Home() {
       <div className="c-cta">
         <div className="c-cta__title">{t.getInTouch}</div>
         <div className="c-social">
-          <a href="https://github.com/AnthonyMlns" target="_blank" rel="noopener noreferrer" className="c-social__link" aria-label="GitHub">
-            <GitHubIcon />
+          <a href="https://www.instagram.com/anthonymlns/" target="_blank" rel="noopener noreferrer" className="c-social__link" aria-label="Instagram">
+            <InstagramIcon />
           </a>
           <a href="https://www.linkedin.com/in/anthonymlns/" target="_blank" rel="noopener noreferrer" className="c-social__link" aria-label="LinkedIn">
             <LinkedInIcon />
           </a>
-          <a href="https://www.instagram.com/anthonymlns/" target="_blank" rel="noopener noreferrer" className="c-social__link" aria-label="Instagram">
-            <InstagramIcon />
+          <a href="https://github.com/AnthonyMlns" target="_blank" rel="noopener noreferrer" className="c-social__link" aria-label="GitHub">
+            <GitHubIcon />
+          </a>
+          <a href="mailto:milans.antony@gmail.com" className="c-social__link" aria-label="Email">
+            <MailIcon />
           </a>
         </div>
       </div>
