@@ -22,7 +22,6 @@ export type Translations = {
     tagline: string;
     ethos: string[];
     location: string;
-    email: string;
   };
   skills: {
     label: string;
@@ -34,12 +33,6 @@ export type Translations = {
     items: ProjectItem[];
   };
   linkGroups: LinkGroup[];
-  newsletter: {
-    label: string;
-    placeholder: string;
-    button: string;
-  };
-  footer: string;
   faceab: {
     subtitle: string;
     directory: string;
@@ -59,7 +52,6 @@ const translations: Record<Lang, Translations> = {
       tagline: "We are all just stories",
       ethos: ["Minimalisme", "Stoïcisme", "Wabi-Sabi"],
       location: "Montpellier, FR",
-      email: "milans.antony@gmail.com",
     },
     skills: {
       label: "Compétences",
@@ -92,11 +84,6 @@ const translations: Record<Lang, Translations> = {
         ],
       },
     ],
-    newsletter: {
-      label: "Newsletter",
-      placeholder: "email@nom.com",
-      button: "S'inscrire",
-    },
     footer: "© {year} Anthony Milans",
     faceab: {
       subtitle: "Textes personnels, fragments & expérimentations d'écriture",
@@ -118,7 +105,6 @@ const translations: Record<Lang, Translations> = {
       tagline: "We are all just stories",
       ethos: ["Minimalisme", "Stoïcisme", "Wabi-Sabi"],
       location: "Montpellier, FR",
-      email: "milans.antony@gmail.com",
     },
     skills: {
       label: "Skills",
@@ -151,11 +137,6 @@ const translations: Record<Lang, Translations> = {
         ],
       },
     ],
-    newsletter: {
-      label: "Newsletter",
-      placeholder: "email@name.com",
-      button: "Sign Up",
-    },
     footer: "© {year} Anthony Milans",
     faceab: {
       subtitle: "Personal texts, fragments & writing experiments",

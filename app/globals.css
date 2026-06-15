@@ -12,8 +12,6 @@
   --bg:             #fbf9f7;
   --bg-subtle:      #f5f4f1;
   --bg-light:       #efeeeb;
-  --on-dark:        #ffffff;
-  --on-dark-muted:  #cccccc;
   --accent:         #e11d48;
   --accent-soft:    rgba(225, 29, 72, 0.06);
 
@@ -299,54 +297,6 @@ body {
 .c-link-item--accent .c-link-item__arrow {
   color: var(--accent);
 }
-
-/* Newsletter */
-.c-newsletter {
-  background: var(--bg-subtle);
-  border: var(--border-thin) solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--sp-8) var(--sp-9);
-  margin-bottom: var(--sp-6);
-}
-.c-newsletter__label {
-  font-size: var(--text-nano);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--faint);
-  margin-bottom: var(--sp-4);
-}
-.c-newsletter__row {
-  display: flex;
-  gap: var(--sp-3);
-}
-.c-newsletter__input {
-  flex: 1;
-  border: var(--border-thin) solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: var(--sp-4) var(--sp-5);
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  background: var(--bg);
-  color: var(--ink);
-  outline: none;
-}
-.c-newsletter__input:focus {
-  border-color: var(--ink);
-}
-.c-newsletter__btn {
-  background: var(--ink);
-  color: var(--on-dark);
-  border: none;
-  border-radius: var(--radius-sm);
-  padding: var(--sp-4) var(--sp-7);
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: opacity 0.15s;
-}
-.c-newsletter__btn:hover { opacity: 0.85; }
 
 /* Footer */
 .c-footer {
