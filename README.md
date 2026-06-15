@@ -38,12 +38,15 @@ npm run lint    # ESLint
 ```
 ├── app/           # Pages et layout (App Router)
 │   ├── facea-faceb/   # Page textes personnels
+│   │   └── [slug]/    # Pages individuelles de lecture
 │   ├── globals.css
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components/    # Composants React
-├── lib/           # Logique métier, traductions, contextes
-└── public/        # Assets statiques (CV, images)
+├── lib/           # Logique métier, traductions, textes
+├── public/        # Assets statiques (CV, images)
+│   └── textes/    # Fichiers MD + PDF des textes
+└── textes/        # Sources originales des textes
 ```
 
 ## Roadmap
@@ -51,8 +54,8 @@ npm run lint    # ESLint
 - [x] Design system initial (tokens, composants)
 - [x] Switch FR/EN
 - [x] Sections : header, liens, projets, compétences
-- [x] Page projet FaceA/FaceB (structure) ([#2](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/2))
-- [ ] **PRIO** — Ajouter les textes sur FaceA/FaceB
+- [x] Page projet FaceA/FaceB (structure + lecteur MD/PDF) ([#2](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/2))
+- [x] Textes ajoutés (Avignon, Nocturnes, Un Auteur Classique, Preuves de Vie)
 - [ ] **PRIO** — Page Portfolio ([#5](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/5))
 - [ ] Déploiement Vercel + domaine personnalisé ([#1](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/1))
 - [ ] Mode sombre ([#3](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/3))
