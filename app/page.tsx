@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLanguage } from "@/lib/LanguageContext";
 import Tags from "@/components/Tags";
 import LanguageToggle from "@/components/LanguageToggle";
@@ -23,6 +24,8 @@ const InstagramIcon = () => (
 );
 
 const linkHrefs: Record<string, string> = {
+  "FaceA/FaceB": "/facea-faceb",
+  "Portfolio": "/portfolio",
   "AH Milans Gallery": "https://ahmilans.gallery",
   "Kairos Digital": "https://kairos-digital.com",
   "LinkedIn": "https://linkedin.com/in/anthonymlns",
@@ -53,6 +56,12 @@ export default function Home() {
           <span className="c-header__last">Milans</span>
         </h1>
         <div className="c-header__sub">{t.header.subtitle}</div>
+        <div className="c-header__tagline">{t.header.tagline}</div>
+        <div className="c-header__ethos">
+          {t.header.ethos.map((tag) => (
+            <span key={tag} className="c-tag">{tag}</span>
+          ))}
+        </div>
         <div className="c-header__contact">
           <span>{t.header.location}</span>
           <span>{t.header.email}</span>
@@ -77,8 +86,56 @@ export default function Home() {
 
       {/* Links — Perso */}
       <div className="c-card">
-        <div className="c-section-label">{t.linkGroups[0].label}</div>
-        {t.linkGroups[0].items.map((link) => (
+        <div className="c-section-label c-section-label--blue">{t.linkGroups[0].label}</div>
+        {t.linkGroups[0].items.map((link) => {
+          const href = linkHrefs[link.title] || "#";
+          const isInternal = href.startsWith("/");
+          return isInternal ? (
+            <Link key={link.title} href={href} className="c-link-item">
+              <div>
+                <div className="c-link-item__title">{link.title}</div>
+                <div className="c-link-item__desc">{link.desc}</div>
+              </div>
+              <span className="c-link-item__arrow">→</span>
+            </Link>
+          ) : (
+            <a
+              key={link.title}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="c-link-item"
+            >
+              <div>
+                <div className="c-link-item__title">{link.title}</div>
+                <div className="c-link-item__desc">{link.desc}</div>
+              </div>
+              <span className="c-link-item__arrow">→</span>
+            </a>
+          );
+        })}
+      </div>
+
+      {/* FaceA/FaceB — Textes à l'affiche */}
+      <div className="c-card c-card--accent-blue">
+        <div className="c-section-label">{t.faceabFeatured.label}</div>
+        {t.faceabFeatured.items.map((item) => (
+          <Link key={item.title} href="/facea-faceb" className="c-link-item">
+            <div>
+              <div className="c-link-item__title">{item.title}</div>
+              <div className="c-link-item__desc">{item.desc}</div>
+            </div>
+            <span className="c-link-item__arrow">→</span>
+          </Link>
+        ))}
+      </div>
+
+      <hr className="c-sep" />
+
+      {/* Links — Pro */}
+      <div className="c-card">
+        <div className="c-section-label c-section-label--red">{t.linkGroups[1].label}</div>
+        {t.linkGroups[1].items.map((link) => (
           <a
             key={link.title}
             href={linkHrefs[link.title] || "#"}
@@ -93,6 +150,9 @@ export default function Home() {
             <span className="c-link-item__arrow">→</span>
           </a>
         ))}
+        <div style={{ height: "var(--sp-5)" }} />
+        <div className="c-section-label">{t.skills.label}</div>
+        <Tags items={t.skills.items} variant="tech" />
       </div>
 
       {/* Projects */}
@@ -113,29 +173,6 @@ export default function Home() {
             <span className="c-link-item__arrow">→</span>
           </a>
         ))}
-      </div>
-
-      {/* Links — Pro */}
-      <div className="c-card">
-        <div className="c-section-label">{t.linkGroups[1].label}</div>
-        {t.linkGroups[1].items.map((link) => (
-          <a
-            key={link.title}
-            href={linkHrefs[link.title] || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="c-link-item"
-          >
-            <div>
-              <div className="c-link-item__title">{link.title}</div>
-              <div className="c-link-item__desc">{link.desc}</div>
-            </div>
-            <span className="c-link-item__arrow">→</span>
-          </a>
-        ))}
-        <div style={{ height: "var(--sp-5)" }} />
-        <div className="c-section-label">{t.skills.label}</div>
-        <Tags items={t.skills.items} variant="tech" />
       </div>
 
       {/* Footer */}

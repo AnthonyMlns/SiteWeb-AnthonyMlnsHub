@@ -37,6 +37,7 @@ npm run lint    # ESLint
 
 ```
 ├── app/           # Pages et layout (App Router)
+│   ├── facea-faceb/   # Page textes personnels
 │   ├── globals.css
 │   ├── layout.tsx
 │   └── page.tsx
@@ -50,8 +51,10 @@ npm run lint    # ESLint
 - [x] Design system initial (tokens, composants)
 - [x] Switch FR/EN
 - [x] Sections : header, liens, projets, compétences
+- [x] Page projet FaceA/FaceB (structure) ([#2](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/2))
+- [ ] **PRIO** — Ajouter les textes sur FaceA/FaceB
+- [ ] **PRIO** — Page Portfolio ([#5](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/5))
 - [ ] Déploiement Vercel + domaine personnalisé ([#1](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/1))
-- [ ] Page projet FaceA/FaceB ([#2](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/2))
 - [ ] Mode sombre ([#3](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/3))
 - [ ] SEO & analytics ([#4](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/4))
 
