@@ -233,21 +233,18 @@ body {
   justify-content: center;
   transition: background 0.15s, color 0.15s;
 }
-.c-cta .c-social__link {
-  background: rgba(255,255,255,0.1);
-  color: var(--on-dark-muted);
-}
-.c-cta .c-social__link:hover {
-  background: var(--on-dark);
+.c-social__link:hover {
+  background: var(--bg-light);
   color: var(--ink);
 }
 
 /* CTA block */
 .c-cta {
-  background: var(--ink);
-  color: var(--on-dark);
+  background: var(--bg-subtle);
+  color: var(--ink);
+  border: 1px solid var(--ink);
   border-radius: var(--radius-lg);
-  padding: var(--sp-10) var(--sp-11);
+  padding: var(--sp-8) var(--sp-9);
   margin-bottom: var(--sp-8);
   text-align: center;
 }
@@ -255,6 +252,14 @@ body {
   font-size: 15px;
   font-weight: var(--weight-semi);
   letter-spacing: -0.01em;
+}
+.c-cta .c-social__link {
+  background: transparent;
+  color: var(--faint);
+}
+.c-cta .c-social__link:hover {
+  background: var(--bg-light);
+  color: var(--ink);
 }
 
 /* Link item */
