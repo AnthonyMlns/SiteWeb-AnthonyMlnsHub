@@ -18,6 +18,12 @@ export const texts: TextEntry[] = [
     desc: "Carnets Classiques — Un Auteur Classique",
     year: "2025",
   },
+  {
+    slug: "nocturnes",
+    title: "Carnets Classiques — Nocturnes",
+    desc: "Carnets Classiques — Nocturnes",
+    year: "2025",
+  },
 ];
 
 export function getTextBySlug(slug: string): TextEntry | undefined {
