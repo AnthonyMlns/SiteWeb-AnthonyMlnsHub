@@ -264,7 +264,7 @@ La flamme a dansé, a fait des ombres
 et des clartés.  
 Quand elle a faibli,  
 quelqu'un a soufflé doucement  
-pour qu'elle vie.
+pour qu'elle vive.
 
 Parfois une preuve c'est juste ça :  
 quelqu'un qui souffle  

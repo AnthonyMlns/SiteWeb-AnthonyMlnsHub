@@ -583,5 +583,4 @@ body {
 }
 
 @media print {
-  .c-cta { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
