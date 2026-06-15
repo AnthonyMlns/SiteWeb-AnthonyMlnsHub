@@ -1,6 +1,8 @@
 export type TextEntry = {
   slug: string;
   title: string;
+  subtitle: string;
+  author: string;
   desc: string;
   year: string;
 };
@@ -8,19 +10,25 @@ export type TextEntry = {
 export const texts: TextEntry[] = [
   {
     slug: "avignon",
-    title: "Carnets Classiques — Avignon",
+    title: "Avignon",
+    subtitle: "Carnets Classiques",
+    author: "Anthony Milans",
     desc: "Carnets Classiques — Avignon",
     year: "2025",
   },
   {
     slug: "un-auteur-classique",
-    title: "Carnets Classiques — Un Auteur Classique",
+    title: "Un Auteur Classique",
+    subtitle: "Carnets Classiques",
+    author: "Anthony Milans",
     desc: "Carnets Classiques — Un Auteur Classique",
     year: "2025",
   },
   {
     slug: "nocturnes",
-    title: "Carnets Classiques — Nocturnes",
+    title: "Nocturnes",
+    subtitle: "Carnets Classiques",
+    author: "Anthony Milans",
     desc: "Carnets Classiques — Nocturnes",
     year: "2025",
   },

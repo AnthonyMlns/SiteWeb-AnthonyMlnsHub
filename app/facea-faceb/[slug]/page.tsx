@@ -46,8 +46,10 @@ export default function TextPage({
         <Link href="/facea-faceb" className="ab-nav__link">← {t.faceab.directory}</Link>
       </nav>
 
-      <header className="ab-header">
+      <header className="ab-text-header">
+        <p className="ab-text-subtitle">{text.subtitle}</p>
         <h1 className="ab-text-title">{text.title}</h1>
+        <p className="ab-text-author">{text.author}</p>
         <div className="ab-text-meta">
           <span>{text.year}</span>
           <a href={`/textes/${slug}.pdf`} download className="ab-text-dl">
