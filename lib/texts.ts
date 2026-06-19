@@ -40,6 +40,14 @@ export const texts: TextEntry[] = [
     desc: "Carnets Classiques — Preuves de Vie",
     year: "2025",
   },
+  {
+    slug: "contemporain",
+    title: "Contemporain",
+    subtitle: "Carnets Classiques",
+    author: "Anthony Milans",
+    desc: "Carnets Classiques — Contemporain",
+    year: "2025",
+  },
 ];
 
 export function getTextBySlug(slug: string): TextEntry | undefined {

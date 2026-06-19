@@ -55,7 +55,7 @@ npm run lint    # ESLint
 - [x] Switch FR/EN
 - [x] Sections : header, liens, projets, compétences
 - [x] Page projet FaceA/FaceB (structure + lecteur MD/PDF) ([#2](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/2))
-- [x] Textes ajoutés (Avignon, Nocturnes, Un Auteur Classique, Preuves de Vie)
+- [x] Textes ajoutés (Avignon, Nocturnes, Un Auteur Classique, Preuves de Vie, Contemporain)
 - [ ] **PRIO** — Page Portfolio ([#5](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/5))
 - [ ] Déploiement Vercel + domaine personnalisé ([#1](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/1))
 - [ ] Mode sombre ([#3](https://github.com/AnthonyMlns/SiteWeb-AnthonyMlnsHub/issues/3))
