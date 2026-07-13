@@ -70,7 +70,7 @@ const translations: Record<Lang, Translations> = {
       {
         label: "Perso",
         items: [
-          { title: "AH Milans Gallery", desc: "Galerie d'art contemporain en ligne" },
+          { title: "AH Milans", desc: "Galerie d'art contemporain en ligne" },
           { title: "Kairos Digital", desc: "Conseil IA pour TPE/PME et indépendants" },
           { title: "FaceA/FaceB", desc: "Textes personnels & fragments d'écriture" },
         ],
@@ -123,7 +123,7 @@ const translations: Record<Lang, Translations> = {
       {
         label: "Personal",
         items: [
-          { title: "AH Milans Gallery", desc: "Contemporary art gallery online" },
+          { title: "AH Milans", desc: "Contemporary art gallery online" },
           { title: "Kairos Digital", desc: "AI consulting for SMBs and freelancers" },
           { title: "FaceA/FaceB", desc: "Personal texts & writing fragments" },
         ],
