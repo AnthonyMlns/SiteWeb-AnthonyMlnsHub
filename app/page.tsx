@@ -31,7 +31,6 @@ const MailIcon = () => (
 );
 
 const linkHrefs: Record<string, string> = {
-  "FaceA/FaceB": "/facea-faceb",
   "Portfolio": "/portfolio",
   "AH Milans": "https://www.ah-milans.com/",
   "Kairos Digital": "https://kairos-digital.com",
